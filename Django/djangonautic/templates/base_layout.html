@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Article List</title>
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
+	<link rel="stylesheet" type="text/css" href="{% static 'styles.css'%}">
+
+
+</head>
+<body>
+	<header class="wrapper">
+		<h1><a href="{% url 'articles:list'%}"><img src="{% static 'logo.png' %}" alt="DjangoNautic"></a></h1>
+		<nav>
+			<ul>
+				<li>
+					 <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+					 	{%csrf_token%}
+					 	<button type="submit">Logout</button>
+					 </form>
+				</li>
+			</ul>
+		</nav>
+
+	</header>
+
+<div class="wrapper">
+	{% block content %}
+	{% endblock%}
+</div>
+
+
+</body>
+</html> 
